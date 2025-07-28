@@ -1,0 +1,66 @@
+import zmq
+import numpy as np
+import time	
+
+DATA_MAX_SIZE = 10000000
+DATA = []
+FLAG = 0
+
+# 데이터 맥스사이즈 800만으로 하고 샘플레이트, 밴드위스도 그에맞게 
+# 졸업전시 땐 여러 외부방해요소 없애기위해 박스에 카페트같은거?   
+
+context = zmq.Context()
+socket = context.socket(zmq.SUB)
+socket.connect("tcp://localhost:5555")
+socket.setsockopt(zmq.SUBSCRIBE, b"")
+
+print("Receiving amplitude data...")
+
+def collectAllLeftData():
+    global DATA
+    
+
+    while(len(DATA)<DATA_MAX_SIZE):
+        raw = socket.recv()
+        DATA.extend(np.frombuffer(raw, dtype=np.float32))     
+        
+   
+prev = 0
+
+
+
+
+while True:
+    
+        
+    collectAllLeftData()
+
+    if np.mean(DATA) > 0.6:
+    	current = 1
+        print(1)
+    else:
+    	current = 0
+        print(0)
+
+    DATA.clear()
+
+    ###print(DATA[:100])
+    
+    if FLAG != 1:
+
+        if(prev!=current):
+            FLAG = 1
+            socket.close()
+            socket = context.socket(zmq.SUB)
+            socket.connect("tcp://localhost:5555")
+            socket.setsockopt(zmq.SUBSCRIBE, b"")
+            
+
+        prev = current
+
+
+    
+   
+    
+    	
+    
