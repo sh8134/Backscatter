@@ -2,7 +2,7 @@ import zmq
 import numpy as np
 import time	
 
-DATA_MAX_SIZE = 10000000
+DATA_MAX_SIZE = 6000000
 DATA = []
 
     
