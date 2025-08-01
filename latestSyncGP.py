@@ -37,10 +37,14 @@ while True:
 
     if np.mean(DATA) > 0.6:
     	current = 1
-        print(1)
+        
+        if FLAG == 1:
+            print(1)
     else:
     	current = 0
-        print(0)
+        
+        if FLAG == 1:
+            print(0)
 
     DATA.clear()
 
