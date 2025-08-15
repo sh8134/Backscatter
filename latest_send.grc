@@ -57,7 +57,7 @@ blocks:
     minoutbuf: '0'
     offset: '0'
     phase: '0'
-    samp_rate: '6000000'
+    samp_rate: '4000000'
     showports: 'False'
     type: complex
     waveform: analog.GR_SIN_WAVE
@@ -74,7 +74,7 @@ blocks:
     affinity: ''
     alias: ''
     attenuation1: '0'
-    bandwidth: '6000000'
+    bandwidth: '4000000'
     buffer_size: '32768'
     comment: ''
     cyclic: 'True'
@@ -84,9 +84,9 @@ blocks:
     frequency: '915000000'
     fstop: '0'
     len_tag_key: ''
-    samplerate: '6000000'
+    samplerate: '4000000'
     type: fc32
-    uri: usb:3.6.5
+    uri: usb:3.16.5
   states:
     bus_sink: false
     bus_source: false
@@ -112,7 +112,7 @@ blocks:
     autoscale: 'False'
     average: '1.0'
     axislabels: 'True'
-    bw: '6000000'
+    bw: '4000000'
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -231,7 +231,7 @@ blocks:
     name: '""'
     nconnections: '1'
     size: '64'
-    srate: '6000000'
+    srate: '4000000'
     stemplot: 'False'
     style1: '1'
     style10: '1'

@@ -66,7 +66,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    bandwidth: '6000000'
+    bandwidth: '4000000'
     bbdc: 'True'
     buffer_size: '32768'
     comment: ''
@@ -82,7 +82,7 @@ blocks:
     minoutbuf: '0'
     quadrature: 'True'
     rfdc: 'True'
-    samplerate: '6000000'
+    samplerate: '4000000'
     type: fc32
     uri: 192.168.3.1
   states:
@@ -110,7 +110,7 @@ blocks:
     autoscale: 'False'
     average: '1.0'
     axislabels: 'True'
-    bw: '6000000'
+    bw: '4000000'
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -229,7 +229,7 @@ blocks:
     name: '""'
     nconnections: '1'
     size: '64'
-    srate: '6000000'
+    srate: '4000000'
     stemplot: 'False'
     style1: '1'
     style10: '1'
