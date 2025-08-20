@@ -35,6 +35,9 @@ while True:
 
 
     if thr == 0.0:
+        # I used mean value of sum of np.min(DATA) and np.max(DATA) cause
+        # like calculating threshold using my own eye within one second 
+        # there always are likely to have previous values.
 
         thr = (np.min(DATA) + np.max(DATA))/2
 
