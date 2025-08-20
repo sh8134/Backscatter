@@ -2,9 +2,10 @@ import zmq
 import numpy as np
 import time	
 
-DATA_MAX_SIZE = 4000000
 DATA = []
 start = time.time()
+index = 0
+thr = 0.0
    
 
 context = zmq.Context()
@@ -19,37 +20,40 @@ def collectAllLeftData():
     global start
 
     while(time.time() - start < 1):
+        
         raw = socket.recv()
         DATA.extend(np.frombuffer(raw, dtype=np.float32))     
         
 
     start = time.time()
 
-
-	
-
-        
-prev = 0
-
-
 while True:
 
+    index += 1
     collectAllLeftData()
 
-    if np.mean(DATA) > 0.75:
-    	#current = 1
+
+
+    if thr == 0.0:
+
+        thr = (np.min(DATA) + np.max(DATA))/2
+
+    if index > 10:
+
+        thr = (np.min(DATA) + np.max(DATA))/2
+
+        index = 0
+
+
+
+    if np.mean(DATA) > thr:
+    	
         print(1)
     else:
-    	#current = 0
+    	
         print(0)
 
     #print(DATA[:100])
-    #print(len(DATA))
-
-    #if(prev!=current):
-    #    print(current)
-
-    #prev = current
 
 
     DATA.clear()
