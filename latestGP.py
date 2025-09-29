@@ -30,8 +30,8 @@ def collectAllLeftData():
         
 
     start = time.time()
-
-    MEAN_VALUES_FOR_SETTING_THRESHOLD.Extend(mean(DATA))
+    raw2 = np.mean(DATA)
+    MEAN_VALUES_FOR_SETTING_THRESHOLD.extend(np.frombuffer(raw, dtype=np.float32))
     
 
 def setThreshold():
