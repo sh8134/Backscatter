@@ -3,9 +3,11 @@ import numpy as np
 import time	
 
 DATA = []
+MEAN_VALUES_FOR_SETTING_THRESHOLD = []
 start = time.time()
 index = 0
 thr = 0.0
+
    
 
 context = zmq.Context()
@@ -16,16 +18,28 @@ socket.setsockopt(zmq.SUBSCRIBE, b"")
 print("Receiving amplitude data...")
 
 def collectAllLeftData():
+
     global DATA
     global start
 
     while(time.time() - start < 1):
         
         raw = socket.recv()
-        DATA.extend(np.frombuffer(raw, dtype=np.float32))     
+        DATA.extend(np.frombuffer(raw, dtype=np.float32))
+        
         
 
     start = time.time()
+
+    MEAN_VALUES_FOR_SETTING_THRESHOLD.Extend(mean(DATA))
+    
+
+def setThreshold():
+
+    thr = (np.min(MEAN_VALUES_FOR_SETTING_THRESHOLD) + np.max(MEAN_VALUES_FOR_SETTING_THRESHOLD))/2
+
+    
+    MEAN_VALUES_FOR_SETTING_THRESHOLD.clear()
 
 while True:
 
@@ -43,7 +57,7 @@ while True:
 
     if index > 10:
 
-        thr = (np.min(DATA) + np.max(DATA))/2
+        setThreshold()
 
         index = 0
 
