@@ -84,7 +84,7 @@ blocks:
     rfdc: 'True'
     samplerate: '4000000'
     type: fc32
-    uri: 192.168.3.1
+    uri: usb:3.6.5
   states:
     bus_sink: false
     bus_source: false

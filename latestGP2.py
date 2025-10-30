@@ -58,7 +58,7 @@ while True:
 
         THRESHOLD = (np.min(DATA) + np.max(DATA))/2
 
-    if INDEX > 10:
+    if INDEX > 8:
 
         setThreshold()
 

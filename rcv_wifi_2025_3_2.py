@@ -162,7 +162,7 @@ class rcv_wifi_2025_3_2(gr.top_block, Qt.QWidget):
 
         self._qtgui_freq_sink_x_0_win = sip.wrapinstance(self.qtgui_freq_sink_x_0.qwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_freq_sink_x_0_win)
-        self.iio_pluto_sink_0 = iio.fmcomms2_sink_fc32('usb:3.5.5' if 'usb:3.5.5' else iio.get_pluto_uri(), [True, True], 32768, True)
+        self.iio_pluto_sink_0 = iio.fmcomms2_sink_fc32('192.168.3.1' if '192.168.3.1' else iio.get_pluto_uri(), [True, True], 32768, True)
         self.iio_pluto_sink_0.set_len_tag_key('')
         self.iio_pluto_sink_0.set_bandwidth(4000000)
         self.iio_pluto_sink_0.set_frequency(915000000)
