@@ -86,7 +86,7 @@ blocks:
     len_tag_key: ''
     samplerate: '4000000'
     type: fc32
-    uri: usb:3.8.5
+    uri: usb:3.7.5
   states:
     bus_sink: false
     bus_source: false
